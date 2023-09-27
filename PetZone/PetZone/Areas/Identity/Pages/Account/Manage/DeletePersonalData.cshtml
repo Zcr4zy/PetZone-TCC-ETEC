@@ -1,0 +1,35 @@
+﻿@page
+@model DeletePersonalDataModel
+@{
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+    
+}
+
+<h3>@ViewData["Title"]</h3>
+
+<div class="alert alert-warning" role="alert" style="left:17%; margin-top:100px">
+    <h2 style="text-align:center;">DELETAR CONTA</h2>
+    <p style="text-align:center;">
+        <strong style="text-align:center;">Deletando esta conta, os pets que estão cadastrados nela também serão deletados!</strong>
+    </p>
+</div>
+
+<div>
+    <form id="delete-user" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger" ></div>
+        @if (Model.RequirePassword)
+        {
+            <div class="form-floating">
+                <label style="margin-left:166px; margin-bottom:10px;padding-top: 5px;">Senha</label>
+                <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" style="margin-left:166px; margin-top:50px;font-color:black"/>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+        }
+        <button class="w-100 btn btn-lg btn-danger" type="submit" style="margin-left:166px;">Deletar Conta</button><br />
+        
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

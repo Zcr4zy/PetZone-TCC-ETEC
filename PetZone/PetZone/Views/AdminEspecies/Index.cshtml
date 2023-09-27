@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PetZone.Models.Especie>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+body{
+     background: linear-gradient(to right, rgb(255,255,255), rgb(26,206,156));
+}
+a{
+    text-decoration:none!important;
+}
+
+#container{
+            text-align:center;
+            border:2px solid rgb(18,160,121)!important;
+            font-size:20px;
+            background: transparent;
+        }
+</style>
+
+<h1>Espécies</h1>
+
+<p>
+    <a asp-action="Create">Criar Nova Especie</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <br />
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EspecieId">Editar</a> ||
+                <a asp-action="Delete" asp-route-id="@item.EspecieId">Deletar</a>
+            </td>
+        </tr>
+}
+
+    </tbody>
+</table><br />
+<p id="container" class="button">
+            <a style="width: 980px;color:rgb(0,0,0);" asp-controller="Admin" asp-action="Index" >Retornar á Página Inicial de Admin</a>
+</p>

@@ -1,0 +1,79 @@
+﻿@model PetListViewModel
+
+<div class="mt-5">
+    <h2>@Model.EspecieAtual</h2>
+</div>
+
+<style>
+
+body{
+  background: linear-gradient(to right, rgb(255,255,255), rgb(192,192,192));
+  color:#ffffff;
+}
+
+    #User h3{
+         padding-top:10px;
+         color:black;
+    }
+
+    #User img{
+        height: 18%;
+        width: 20%;
+        float: left;
+        margin-right:20px;
+        border-radius: 20%;
+        margin-bottom: 10px;
+    }
+
+    .btn-default{
+        border: 2px solid #000 !important;
+        background-color: #469bd2;
+        transition: background 1.0s;
+    }
+
+    .btn-default:hover{
+        transform: scaleX(1.1) scaleY(1.1);
+        cursor: grab;
+    }
+
+      #cartButton{
+         transition: background 1.0s;
+         background-size: 250%;
+         background: rgb(57,255,20);
+         text-align: center;
+         border: 2px solid rgb(0,0,0) !important;
+    }
+
+     #cartButton:hover{
+        transform: scaleX(1.1) scaleY(1.1);
+        cursor: grab;
+    }
+</style>
+
+
+<div class="container">
+
+   @foreach (var pet in Model.Pets)
+{
+    <div class="col-sm-4 col-md-4 col-lg-4 mt-5">
+
+        <div id="User">
+            <img src="@pet.Usuario.Foto" id="ft" class="img-fluid" />
+
+            <h3>@pet.Usuario.Nome</h3><br>
+        </div>
+        
+        <h3 style="color:black;left:500px;">@pet.Nome</h3>
+        <p style="color:black">@pet.Descricao</p>
+        <p><img src="@pet.ImgLink" class="img-fluid"></p>
+        <p class="button">
+            <a class="btn btn-default" id="" asp-controller="Home" asp-action="Detalhes" asp-route-petId="@pet.PetId" style="color:black;">Ver detalhes</a>
+            <a class="btn" id="cartButton" asp-controller="Ficha" asp-action="Checkout" asp-route-petId="@pet.PetId" style="color:black;">ADOTAR</a>
+        </p>
+
+        <br /><br />
+    </div>
+}
+
+
+</div>

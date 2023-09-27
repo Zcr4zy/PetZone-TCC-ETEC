@@ -1,0 +1,50 @@
+﻿@model PetZone.Models.Curiosidade
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+body{
+     background: linear-gradient(to right, rgb(255,255,255), rgb(26,206,156));
+}
+</style>
+
+<h1>Detalhes da Curiosidade</h1>
+
+<div>
+    <h4>Curiosidade</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imagem)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Imagem)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Raca)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Raca.Nome)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.CuriosidadeId">Editar</a> |
+    <a asp-action="Index">Retornar para Página de Curiosidades</a>
+</div>
+

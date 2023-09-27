@@ -1,0 +1,64 @@
+﻿@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+<!doctype html>
+<html>
+<head>
+    <title>PetZone / Sistema Web de Adoção</title>
+    <link rel="shortcut icon" href="~/images/WhatsApp_Image_2022-08-06_at_16.24.03-removebg-preview.ico" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="~/Identity/assetLogin/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Fazer Login:</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" role="form">
+
+                        <input type="hidden" asp-for="ReturnUrl" />
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <div class="col">
+                                <input asp-for="Input.Email" class="form-control" type="email" required="" placeholder="E-mail" />
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <div class="col">
+                                <input asp-for="Input.Password" class="form-control" required="" placeholder="Senha" />
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <input type="submit" value="Login" class="btn float-right login_btn">
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <div class="links text-center">
+                        Não possui uma conta ainda?<br /><a asp-page="Register" asp-area="Identity">Registre-se aqui</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+</body>
+</html>

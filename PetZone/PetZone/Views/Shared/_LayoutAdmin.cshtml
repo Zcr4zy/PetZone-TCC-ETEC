@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>PetZone / Sistema Web de Adoção</title>
+
+    <link rel="shortcut icon" href="~/images/WhatsApp_Image_2022-08-06_at_16.24.03-removebg-preview.ico" />
+    <link rel="stylesheet" href="~/assetLayoutAdmin/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="~/assetLayoutAdmin/css/Navbar---Logo-Middle---Phone-Logo-Up.css">
+    <link rel="stylesheet" href="~/assetLayoutAdmin/css/styles.css">
+</head>
+
+<style>
+    
+    body{
+        background:transparent;
+    }
+
+</style>
+
+<body>
+    <div id="test" style="text-align: center;margin-top: 20px;"><img id="logoimageonphone" src="~/images/Logo.png">
+        <nav class="navbar navbar-light navbar-expand-md sticky-top">
+            <div class="container-fluid"><button data-bs-toggle="collapse" data-bs-target="#navcol-3" class="navbar-toggler"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-2">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item navigationitemsleft"><a class="nav-link active"  asp-controller="AdminEspecies" asp-action="Index">Espécies</a></li>
+                        <li class="nav-item navigationitemsleft"><a class="nav-link active"  asp-controller="AdminFichas" asp-action="Index">Fichas</a></li>
+                        <li class="nav-item navigationitemsleft"><a class="nav-link active"  asp-controller="AdminGeneros" asp-action="Index">Gêneros</a></li>
+                    </ul>
+                </div><a asp-controller="Admin" asp-action="Index"><img data-aos="fade" data-aos-duration="3000" id="logoimage" src="~/images/Logo.png" style="display:block;margin-left: auto; margin-right: auto;" asp-controller="Admin" asp-action="Index"></a>
+                <div class="collapse navbar-collapse" id="navcol-3">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item navigationitemsright"><a class="nav-link active" asp-controller="AdminPets" asp-action="Index">Pets</a></li><li></li>
+                        <li class="nav-item navigationitemsright"><a class="nav-link active" asp-controller="AdminRacas" asp-action="Index">Raças</a></li>
+                        <li class="nav-item navigationitemsright"><a class="nav-link active"  asp-controller="AdminCuriosidades" asp-action="Index">Curiosidades</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav> 
+    </div>
+      <div>
+        @RenderBody()
+    </div>
+    <script src="~/assetLayoutAdmin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assetLayoutAdmin/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+

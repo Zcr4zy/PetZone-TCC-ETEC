@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-PetZone-B001A2EE-6128-4F78-AC45-42FFA2D26AD9</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\images\NovaPasta1\**" />
+    <Compile Remove="wwwroot\images\NovaPasta\**" />
+    <Content Remove="wwwroot\images\NovaPasta1\**" />
+    <Content Remove="wwwroot\images\NovaPasta\**" />
+    <EmbeddedResource Remove="wwwroot\images\NovaPasta1\**" />
+    <EmbeddedResource Remove="wwwroot\images\NovaPasta\**" />
+    <None Remove="wwwroot\images\NovaPasta1\**" />
+    <None Remove="wwwroot\images\NovaPasta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\AdminEspecies\Details.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\AdminFichas\Delete.cshtml" />
+    <None Include="Views\AdminFichas\Details.cshtml" />
+    <None Include="Views\AdminFichas\Edit.cshtml" />
+    <None Include="Views\AdminFichas\Index.cshtml" />
+    <None Include="Views\Pet\List.cshtml" />
+    <None Include="Views\Postagem\AdicionarPet.cshtml" />
+    <None Include="Views\Postagem\PostCompleto.cshtml" />
+    <None Include="wwwroot\assetPost-Multiple-Step-Personalizado\script.js" />
+    <None Include="wwwroot\Home\assetsCuriosidade\bootstrap\js\bootstrap.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
+  </ItemGroup>
+
+</Project>

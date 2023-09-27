@@ -1,0 +1,217 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+<!doctype html>
+<html>
+<head>
+    <title>PetZone / Registro</title>
+    <link rel="shortcut icon" href="~/images/WhatsApp_Image_2022-08-06_at_16.24.03-removebg-preview.ico" />
+    <link rel="stylesheet" type="text/css" href="~/Identity/Registro/styles.css">
+
+</head>
+
+<body>
+    <form method="post" style="background:transparent;" role="form" enctype="multipart/form-data">
+        <div class="wrapper">
+            <div class="header">
+                <ul>
+                    <li class="active form_1_progessbar">
+                        <div>
+                            <p>1</p>
+                        </div>
+                    </li>
+                    <li class="form_2_progessbar">
+                        <div>
+                            <p>2</p>
+                        </div>
+                    </li>
+                    <li class="form_3_progessbar">
+                        <div>
+                            <p>3</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="form_wrap">
+                <div class="form_1 data_info">
+                    <h2 style="color:white;">Dados Iniciais</h2>
+
+                    <div class="form_container">
+                        <div class="input_wrap">
+                            <label asp-for="Input.Nome" style="color:white;"></label>
+                            <input type="text" class="input" placeholder="Nome de Usuário" asp-for="Input.Nome" autocomplete="off" required="">
+                            <span asp-validation-for="Input.Nome" class="text-danger"></span>
+                        </div>
+
+                        <div class="input_wrap">
+                            <label asp-for="Input.DataNascimento" style="color:white;"></label>
+                            <input class="input" type="date" asp-for="Input.DataNascimento" required="">
+                             <span asp-validation-for="Input.DataNascimento" class="text-danger"></span>
+                        </div>
+
+                        <div class="input_wrap">
+                            <label asp-for="Input.Numero" style="color:white;"></label>
+                            <input class="input" asp-for="Input.Numero" placeholder="Telefone" required="">
+                            <span asp-validation-for="Input.Numero" class="text-danger"></span>
+                        </div>
+
+                        <div class="input_wrap">
+                            <label asp-for="Input.Foto" style="color:white;"></label>
+                            <!--<input class="input" asp-for="Input.Foto" placeholder="Foto do Usuário" required="">-->
+                            <input type="file" name="files" class="form-control-file" accept=".jpg,.jpeg,.png,.gif,.jfif" />
+                            <span asp-validation-for="Input.Foto" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="form_2 data_info" style="display: none;">
+                    <h2 style="color:white">Endereço</h2>
+
+                    <div class="form_container">
+                        <div class="input_wrap">
+                            <label asp-for="Input.Cep" style="color:white;"></label>
+                            <input class="input" asp-for="Input.Cep" placeholder="CEP" onblur="pesquisacep(this.value);">
+                             <span asp-validation-for="Input.Cep" class="text-danger"></span>
+                        </div>
+
+                        <div class="input_wrap">
+                            <label asp-for="Input.Endereco" style="color:white;"></label>
+                            <input class="input" asp-for="Input.Endereco" placeholder="Rua e Logradouro" required="">
+                            <span asp-validation-for="Input.Endereco" class="text-danger"></span>
+                        </div>
+
+                        <div class="input_wrap">
+                            <label asp-for="Input.Cidade" style="color:white;"></label>
+                            <input class="input" asp-for="Input.Cidade" placeholder="Cidade" required="">
+                             <span asp-validation-for="Input.Cidade" class="text-danger"></span>
+                        </div>
+
+                        <div class="input_wrap">
+                            <label asp-for="Input.Estado" style="color:white;"></label>
+                            <input class="input" asp-for="Input.Estado" placeholder="Estado" style="background-color: white;color:black;">
+                             <span asp-validation-for="Input.Estado" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form_3 data_info" style="display: none;">
+                    <h2 style="color:white">Dados da Conta</h2>
+
+                    <div class="form_container">
+                        <div class="input_wrap">
+                            <label asp-for="Input.Email" style="color:white;"></label>
+                            <input class="input" asp-for="Input.Email" placeholder="E-mail">
+                             <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="input_wrap">
+                            <label asp-for="Input.Password" style="color:white;"></label>
+                            <input class="input" asp-for="Input.Password" placeholder="Senha">
+                             <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div class="input_wrap">
+                            <label asp-for="Input.ConfirmPassword" style="color:white;"></label>
+                            <input class="input" asp-for="Input.ConfirmPassword" placeholder="Confirmar Senha" >
+                             <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="btns_wrap">
+                <div class="common_btns form_1_btns">   
+                     <p class="button btn_back" id="botao" style="margin-right: 100px;text-align:center;padding-top: 10px;color:White;background-color: rgb(77,170,222); transition: 0.5s ease;cursor: pointer;">
+                        <a type="button" id="botao" class="btn_back" style="color:white;text-decoration:none;transition: 0.5s ease;cursor: pointer;" asp-page="Login" asp-area="Identity">Página de Login</a>
+                    </p>       
+                    <style>
+                        #botao:hover{
+                            background: rgb(2,17,204);
+                        }
+                    </style>
+                    <button type="button" class="btn_next">Próxima Etapa <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
+                </div>
+                <div class="common_btns form_2_btns" style="display: none;">
+                    <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Etapa Anterior</button>
+                    <button type="button" class="btn_next">Próxima Etapa<span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
+                </div>
+                <div class="common_btns form_3_btns" style="display: none;">
+                    <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Etapa Anterior</button>
+                    <button type="submit" class="btn_done">Criar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script type="text/javascript" src="~/Identity/Registro/scripts.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script>
+    
+    function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('Input_Endereco').value=("");
+            document.getElementById('Input_Cidade').value=("");
+            document.getElementById('Input_Estado').value=("");
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('Input_Endereco').value=(conteudo.logradouro);
+            document.getElementById('Input_Cidade').value=(conteudo.localidade);
+            document.getElementById('Input_Estado').value=(conteudo.uf);
+
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+        
+    function pesquisacep(valor) {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('Input_Endereco').value="...";
+                document.getElementById('Input_Cidade').value="...";
+                document.getElementById('Input_Estado').value="...";
+
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    };
+
+    </script>
+</body>
+</html>

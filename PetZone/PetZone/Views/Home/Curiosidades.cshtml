@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Curiosidade>
+
+    <link rel="stylesheet" href="~/Home/assetsCuriosidade/bootstrap/css/bootstrap.min.css?h=a71bf27e51375efaf2ace69f52bc4768">
+    <link rel="stylesheet" href="~/Home/assetsCuriosidade/css/styles.css?h=ae39e032690f4385a9316c20d3695a19">
+
+     <h1 style="text-align: center; font-size: 60px;color:black "><b>Curiosidades Semanais</b></h1>
+
+    @foreach (var curiosidade in Model)
+{
+    <style>
+
+    body {
+        background: linear-gradient(to right, rgb(255,255,255), rgb(192,192,192));
+        color:#ffffff;
+    }
+
+
+    h6{
+        text-align:center;
+        color:black;
+    }
+
+    h4 {
+        text-align:center;
+        font-size: 25px;
+    }
+    </style>
+       <div class="row" style="margin:0px;padding:20px;">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" style="padding:0px;">
+            <div>
+                <p><img src="@curiosidade.Imagem" class="img-fluid" style="height:50vh;width:650px;background-repeat:no-repeat;background-size:cover;background-position:center;"/></p>
+            </div>
+        </div>
+        <div class="w-100 d-sm-block d-md-none d-lg-none d-xl-none"></div>
+        <div class="col" style="padding:0px;">
+            <div class="card">
+                <div class="card-body" style="height:50vh;">
+                    <h4 class="card-title" style="color:black">@curiosidade.Nome</h4>
+                    <h6 style="color:black">@curiosidade.Raca.Especie.Nome --- @curiosidade.Raca.Nome</h6>
+                    <p class="card-text" style="color:black">@curiosidade.Descricao</p>
+                </div>
+            </div>
+        </div>
+    </div><br />
+}
+
+<script src="~/Home/assetsCuriosidade/bootstrap/js/bootstrap.min.js?h=5488c86a1260428f0c13c0f8fb06bf6a"></script>

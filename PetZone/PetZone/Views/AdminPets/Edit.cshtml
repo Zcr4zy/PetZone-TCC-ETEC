@@ -1,0 +1,83 @@
+﻿@model PetZone.Models.Pet
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+body{
+     background: linear-gradient(to right, rgb(255,255,255), rgb(26,206,156));
+}
+</style>
+
+<h1>Editar Pet</h1>
+
+<h4>Pet</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PetId" />
+            <div class="form-group"><br />
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <label asp-for="Idade" class="control-label"></label>
+                <input asp-for="Idade" class="form-control" />
+                <span asp-validation-for="Idade" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <label asp-for="Peso" class="control-label"></label>
+                <input asp-for="Peso" class="form-control" />
+                <span asp-validation-for="Peso" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <label asp-for="ImgLink" class="control-label"></label>
+                <input asp-for="ImgLink" class="form-control" />
+                <span asp-validation-for="ImgLink" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <label asp-for="ImgLinkII" class="control-label"></label>
+                <input asp-for="ImgLinkII" class="form-control" />
+                <span asp-validation-for="ImgLinkII" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <label asp-for="GeneroId" class="control-label"></label>
+                <select asp-for="GeneroId" class="form-control" asp-items="ViewBag.GeneroId"></select>
+                <span asp-validation-for="GeneroId" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <label asp-for="RacaId" class="control-label"></label>
+                <select asp-for="RacaId" class="form-control" asp-items="ViewBag.RacaId"></select>
+                <span asp-validation-for="RacaId" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <label asp-for="Usuario" class="control-label"></label>
+                <select asp-for="UsuarioId" class="form-control" asp-items="ViewBag.UsuarioId"></select>
+                <span asp-validation-for="UsuarioId" class="text-danger"></span>
+            </div><br />
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ParaAdocao" /> @Html.DisplayNameFor(model => model.ParaAdocao)
+                </label>
+            </div><br />
+            <div class="form-group">
+                <input type="submit" value="Salvar Alterações" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Retornar para a Página de Pets</a>
+</div>
+

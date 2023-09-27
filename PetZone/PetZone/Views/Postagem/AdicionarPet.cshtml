@@ -1,0 +1,128 @@
+﻿@model Pet
+
+<link rel="stylesheet" href="~/assetPost-Multiple-Step-Personalizado/style.css" />
+<link rel="stylesheet" href="~/Jeito 2/test01.css" />
+
+
+<form asp-action="AdicionarPet" class="form" method="post" role="form" enctype="multipart/form-data">
+    <input asp-for="UsuarioId" type="hidden" />
+    <h1 class="text-center" style="color:black">Formulário para Postagem</h1>
+    <!-- Progress bar -->
+    <div class="progressbar">
+        <div class="progress" id="progress"></div>
+
+        <div class="progress-step progress-step-active"
+             data-title="Dados iniciais"></div>
+        <div class="progress-step" data-title="Imagens"></div>
+        <div class="progress-step" data-title="Dados Finais"></div>
+    </div>
+
+    <!-- Steps -->
+    <!-- Etapa 1 -->
+    <div class="form-step form-step-active">
+        <div class="input-group row">
+            <label for="username" style="color:black">Nome</label>
+            <input asp-for="Nome" placeholder="Insira o nome do pet aqui" type="text" id="username" />
+        </div>
+
+        <div class="input-group row">
+            <label for="idade" style="color:black">Idade</label>
+            <input asp-for="Idade" placeholder="Insira a idade do pet aqui" type="text" id="idade" />
+        </div>
+
+        <div class="input-group row">
+            <label for="peso" style="color:black">Peso</label>
+            <input asp-for="Peso" placeholder="Insira o peso do pet aqui" type="text" id="peso" />
+        </div>
+
+        <div class="input-group row">
+            <label for="descricao" style="color:black">Descrição</label>
+            <input asp-for="Descricao" required placeholder="Insira a descrição do pet aqui" type="text" id="descricao" />
+            <span asp-validation-for="Descricao" class="text-dark"></span>
+        </div>
+
+
+         <div class="btns-group row">
+            <a class="btn btn-prev" id="next" asp-controller="Home" asp-action="Index">Página Inicial</a>
+            <a class="btn btn-next" id="next">Próxima Etapa</a>
+        </div>
+    </div>
+
+    <!-- Etapa 2 -->>
+    <div class="form-step">
+
+        <div class="input-group row">
+            <label for="imagem" style="color:black">Imagem</label>
+            <input type="file" name="files" class="form-control-file" accept=".jpg,.jpeg,.png,.gif,.jfif" />
+            <img src="" class="img-fluid border" id="PreviewImage" />
+            <span asp-validation-for="ImgLink" class="text-dark"></span>
+        </div>
+
+        <div class="input-group row">
+            <label for="imagemII" style="color:black">Imagem Secundária</label>s
+            <input type="file" name="file" class="form-control-file" accept=".jpg,.jpeg,.png,.gif,.jfif" />
+        </div>
+
+        <div class="btns-group row">
+            <a class="btn btn-prev" id="next">Etapa Anterior</a>
+            <a class="btn btn-next" id="next">Próxima Etapa</a>
+        </div>
+    </div>
+
+    <!-- Etapa 3 -->
+
+
+    <div class="form-step">
+        <div class="input-group row">
+            <label for="genero" style="color:black">Gênero</label>
+            <select asp-for="GeneroId" asp-items="@ViewBag.ListGenre" required="number" id="genero" style="padding:12px">
+                <option selected disabled>Selecione o Gênero</option>
+            </select>
+            <span asp-validation-for="GeneroId" class="text-danger"></span>
+        </div>
+
+
+        <div class="input-group row">
+            <label for="raca" style="color:black">Raça</label>
+            <select asp-for="RacaId" asp-items="@ViewBag.ListBreed" required id="raca" style="padding:12px">
+                <option selected disabled style="color:black">Selecione a Raça</option>
+            </select>
+            <span asp-validation-for="RacaId" class="text-danger"></span>
+
+        </div>
+
+        <div class="btns-group">
+            <a class="btn btn-prev" id="next">Etapa Anterior</a>
+            <input type="submit" value="Enviar" id="next" />
+        </div>
+    </div>
+</form>
+
+
+
+@section Scripts{
+<script src="~/assetPost-Multiple-Step-Personalizado/script.js"></script>
+<script src="~/js/test.js"></script>
+<script src="~/Jeito 2/test01.js"></script>
+<partial name="_ValidationScriptsPartial.cshtml" />
+<script>
+    window.addEventListener('load', function () {
+        document.querySelector('input[type="file"]').addEventListener('change', function () {
+            if (this.files && this.files[0]) {
+                var img = document.getElementById('PreviewImage');
+                img.src = URL.createObjectURL(this.files[0]);
+            }
+        });
+    });
+
+    function abrirAlerta() {
+        Swal.fire({
+            icon: 'success',
+            title: '',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    };
+
+</script>
+}

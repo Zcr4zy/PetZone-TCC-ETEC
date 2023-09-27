@@ -1,0 +1,72 @@
+﻿@model Ficha
+
+<style>
+    body{
+        background: linear-gradient(to right, rgb(255,255,255), rgb(192,192,192));
+        color:#ffffff;
+    }
+
+#ficha{
+    border:3px solid rgb(121,121,121);
+    padding-left:20px;
+    padding-right:20px;
+    color:black;
+}
+
+#ficha h3{
+    text-align:center;
+}
+
+#ficha input{
+    border:1px solid rgb(0, 0, 0);
+}
+
+#ficha select{
+    padding:10px;
+    border-color: black;
+    margin-left: 10px;
+    
+}
+</style>
+
+<div id="ficha">
+<h3 class="mt-5" style="color:black">Insira seus dados nos campos abaixo para iniciar o processo de adoção!</h3><hr />
+<form asp-action="Checkout" method="post" class="form-horizontal" role="form">
+    <input type="hidden" name="petId" asp-for="PetId" />
+    <input asp-for="UsuarioId" type="hidden" />
+    
+    <div class="row" style="color:black">
+         <div class="form-group col-md-12">
+            <label asp-for="Cpf" class="control-label"></label>
+            <input asp-for="Cpf" required placeholder="Insira o seu cpf aqui" class="form-control" />
+            <span asp-validation-for="Cpf" class="text-dark"></span>
+        </div>
+    </div><br />
+
+    <div class="row" style="color:black">
+         <div class="form-group col-md-12">
+            <label asp-for="Renda" class="control-label"></label>
+            <input asp-for="Renda" required placeholder="Insira a sua renda mensal aqui" class="form-control type="number" />
+            <span asp-validation-for="Renda" class="text-dark"></span>
+         </div>
+     </div><br />
+
+     <div class="row" style="color:black">
+         <div class="form-group col-md-12">
+            <label asp-for="Motivo" class="control-label"></label>
+            <input asp-for="Motivo" placeholder="Por que você quer adotar este pet?" required class="form-control" />
+            <span asp-validation-for="Motivo" class="text-dark"></span>
+         </div>
+     </div><br />
+    
+    <div class="row" style="color:black">
+        <div class="form-group col-md-3">
+            <input class="btn btn-success" type="submit" value="Concluir Pedido de Adoção" style="border:transparent;" />
+        </div>
+        &nbsp;
+        <div class="form-group col-md-3">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary" style="color:black">Retornar a Página Inicial</a>
+        </div>
+    </div>
+</form>
+</div>

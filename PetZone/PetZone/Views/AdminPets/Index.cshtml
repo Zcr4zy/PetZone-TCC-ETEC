@@ -1,0 +1,111 @@
+﻿@model IEnumerable<PetZone.Models.Pet>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+body{
+     background: linear-gradient(to right, rgb(255,255,255), rgb(26,206,156));
+}
+
+#container{
+            text-align:center;
+            border:2px solid rgb(18,160,121)!important;
+            font-size:20px;
+            background: transparent;
+        }
+
+a{
+    text-decoration:none!important;
+}
+</style>
+
+<h1>Curiosidades</h1>
+
+<p>
+    <a asp-action="Create">Criar Novo Pet</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Idade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Peso)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Genero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Raca)
+            </th>
+
+             <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParaAdocao)
+            </th>
+            <br />
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Peso)
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Genero.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Raca.Nome)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.Nome)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParaAdocao)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PetId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.PetId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.PetId">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table><br />
+
+<p id="container" class="button">
+     <a id="cartbutton" style="width: 980px;color:rgb(0,0,0);" asp-controller="Admin" asp-action="Index" >Retornar á Página Inicial de Admin</a>
+</p>

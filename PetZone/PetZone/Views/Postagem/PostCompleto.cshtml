@@ -1,0 +1,59 @@
+﻿@model Pet
+
+<div class="container mt-5">
+    <div class="jumbotron">
+        <h2></h2>
+    </div>
+    <br /><br /><br />
+
+    <div class="card">
+        <div class="card-body">
+            <p id="nome"><b>@Model.Nome</b></p>
+            <p id="image"><img src="@Model.ImgLink" class="img-fluid"></p>
+            <p id="text">Obrigado por contribuir com a causa e anunciar este pet na plataforma. Lembre-se: você é responsável pela chance que este pet tem de encontrar um novo lar :)</p>
+
+            <style>
+                body{
+                    background: linear-gradient(to left, rgb(80,133,220), rgb(192,192,192));
+                }
+
+                #nome{
+                    color:black;
+                    text-align: center;
+                    font-size: 36px;
+                }
+
+                #image{
+                    text-align: center;
+                }
+
+                .card{
+                    border:3px solid rgb(0, 0, 0);
+                }
+
+                #button{
+                   border:3px solid rgb(23, 48, 219);
+                  
+                }
+
+                #text{
+                    text-align:center;
+                    color: black;
+                    font-size: 20px;
+                }
+
+
+            </style>
+
+        </div>
+        <div class="form-group" style="text-align:center">
+            <br /><h3 id="button">
+                <a class="nav-link btn btn-primary" asp-controller="Home" asp-action="Index" style="color:black;">Retornar a página inicial</a>
+            </h3><br />
+        </div>
+    </div>
+
+    <br /><br /><br />
+
+</div>
+

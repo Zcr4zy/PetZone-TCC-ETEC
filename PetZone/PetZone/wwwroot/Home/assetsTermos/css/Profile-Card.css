@@ -1,0 +1,92 @@
+body {
+    background: linear-gradient(to right, rgb(255,255,255), rgb(192,192,192));
+    color: #ffffff;
+}
+
+a{
+    text-decoration:none !important;
+}
+
+.profile-back {
+    background-color: green;
+    height: 150px;
+    margin-bottom: -75px;
+    border-bottom: 2px solid #000;
+}
+/*Imagem do PetZone*/
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+#image {
+    border: 2px solid #000;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+/*Fim da Imagem do PetZone*/
+
+
+.profile-card {
+
+    padding-bottom: 230px;
+    border: 2px solid #000;
+}
+
+
+/*Título*/
+.profile-name {
+    background-color: green;
+    color: #fff;
+    font-family: 'Actor', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 0;
+    border-radius: 100px;
+    max-width: 300px;
+    margin: 0 auto 10px auto;
+    border: 2px solid #000;
+    text-align: center;
+}
+/*Fim do Título*/
+
+.profile-card .social-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.profile-card .social-list li {
+  display: inline;
+  margin: 0 5px;
+  /*background-color: #9b1f1f;*/
+  /*color: #fff;*/
+  /*padding: 10px;*/
+  /*border-radius: 100%;*/
+}
+
+.profile-bio {
+  margin-bottom: 10px;
+  padding: 10px;
+
+}
+
+.profile-card .social-list li i {
+    background-color: #9b1f1f;
+    color: #fff;
+    padding: 10px 11px;
+    border-radius: 100%;
+}
+
+#corpo{
+    background: transparent;
+    color:black;
+    
+}
+
+.container {
+    margin-top: 70px;
+    padding-bottom: 20px;
+}

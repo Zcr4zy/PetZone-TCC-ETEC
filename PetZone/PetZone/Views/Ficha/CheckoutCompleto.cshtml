@@ -1,0 +1,57 @@
+﻿@model Ficha
+
+<style>
+    #lg{
+        width: 15%;
+        height: 15%;
+
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    h2{
+        text-align:center;
+    }
+
+    #preto{
+        color:black;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="jumbotron">
+        <img id="lg" src="~/images/Logo.png" class="img-fluid" />
+
+        <h2>@ViewBag.CheckoutCompletoMensagem</h2>
+
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <p style="font-size:13px">Ficha Nº<strong>@Model.FichaId</strong></p>
+            <h3><strong>Dados do Adotante:</strong></h3>
+            <p id="preto">NOME DO ADOTANTE: @Model.Usuario.Nome</p>
+            <p id="preto">CPF: @Model.Cpf</p>
+            <p id="preto">E-MAIL: @Model.Usuario.Email</p>
+            <p id="preto">TELEFONE: @Model.Usuario.Numero</p>
+            <p id="preto">DATA DE NASCIMENTO @Model.Usuario.DataNascimento</p>
+            <p id="preto">CEP: @Model.Usuario.Cep</p>
+            <p id="preto">ENDEREÇO: @Model.Usuario.Endereco</p>
+            <p id="preto">CIDADE: @Model.Usuario.Cidade</p>
+            <p id="preto">ESTADO: @Model.Usuario.Estado</p>
+            <br>
+            <h3><strong>Dados do Pet:</strong></h3>
+            <p id="preto">NOME: @Model.Pet.Nome</p>
+            <p id="preto">IDADE: @Model.Pet.Idade</p>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="form-group" style="text-align:center">
+    <h3>
+        <a class="nav-link btn btn-success" asp-controller="Home" asp-action="Index" style="color:black;">Retornar a página inicial</a>
+    </h3>
+</div>
